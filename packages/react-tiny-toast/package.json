@@ -2,22 +2,38 @@
   "name": "react-tiny-toast",
   "version": "0.1.0",
   "private": false,
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "babel": {
+    "presets": [
+      "@babel/react"
+    ]
+  },
   "dependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.7.5",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "rm -rf lib && mkdir lib && npx babel src --out-dir lib --copy-files --watch",
+    "build": "rm -rf lib && mkdir lib && npx babel src/* --out-dir lib --copy-files",
+    "publish": "rm -rf lib && mkdir lib && npx babel src/* --out-dir lib --copy-files && npm publish"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashr81/react-tiny-toast.git",
+    "directory": "packages/react-tiny-toast"
+  },
+  "bugs": {
+    "url": "https://github.com/ashr81/react-tiny-toast/issues"
+  },
+  "homepage": "https://github.com/ashr81/react-tiny-toast#readme",
   "eslintConfig": {
     "extends": "react-app"
   },
