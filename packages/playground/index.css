@@ -1,0 +1,8 @@
+.main-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-shrink: 0; /* known bug in safari browsers */
+    justify-content: center;
+    align-items: center;
+}

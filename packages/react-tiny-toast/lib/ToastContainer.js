@@ -1,6 +1,7 @@
 import React, { useEffect, useReducer, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { toastManager } from './toast';
+import './index.css';
 const ADD = 'ADD';
 const REMOVE = 'REMOVE';
 
@@ -24,7 +25,7 @@ const reducer = (state, action) => {
 };
 
 const ToastContainer = () => {
-  const toastRootElementId = 'toast-root-document-element';
+  const toastRootElementId = 'react-tiny-toast-main-container';
   const [data, dispatch] = useReducer(reducer, []);
   const toastRef = useRef(null);
 
@@ -71,10 +72,12 @@ const ToastContainer = () => {
   }, []);
   const markup = data.map(({
     content,
-    key
+    key,
+    position
   }) => {
     return React.createElement("div", {
-      key: key
+      key: key,
+      className: `toast-container ${position}`
     }, content);
   });
   if (!toastRef.current) return null;
