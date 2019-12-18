@@ -40,20 +40,22 @@ const ToastContainer = () => {
       });
     }
 
-    if (actionType === REMOVE) {
-      if (options.pause) {
+    if (options.pause && actionType === REMOVE) {
+      dispatch({
+        type: REMOVE,
+        data: {
+          id: options.id
+        }
+      });
+    } else if (!options.pause) {
+      window.setTimeout(() => {
         dispatch({
           type: REMOVE,
-          id: options.id
-        });
-      } else {
-        window.setTimeout(() => {
-          dispatch({
-            type: REMOVE,
+          data: {
             id: options.id
-          });
-        }, options.timeout);
-      }
+          }
+        });
+      }, options.timeout);
     }
   };
 

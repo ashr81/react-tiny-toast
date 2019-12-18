@@ -26,14 +26,12 @@ const ToastContainer = () => {
     if(actionType === ADD) {
       dispatch({ type: ADD, data: { content, ...options, key: `${options.id}` }})
     }
-    if(actionType === REMOVE) {
-      if(options.pause) {
-        dispatch({ type: REMOVE, id: options.id})
-      } else {
-        window.setTimeout(() => {
-          dispatch({ type: REMOVE, id: options.id })
-        }, options.timeout)
-      }
+    if(options.pause && actionType === REMOVE) {
+        dispatch({ type: REMOVE, data: {id: options.id}})
+    } else if(!options.pause) {
+      window.setTimeout(() => {
+        dispatch({ type: REMOVE, data: {id: options.id} })
+      }, options.timeout)
     }
   }
 
