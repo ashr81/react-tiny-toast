@@ -9,17 +9,28 @@
   top: 0px;
   left: 0px;
 }
-
-.toast-container.top-center {
-  margin-left: auto;
-  margin-right: auto;
+.toast-container {
   z-index: 9999;
+  position: absolute;
 }
-
+.toast-container.top-center {
+  align-self: center;
+}
 .toast-container.top-left {
   align-self: flex-start;
 }
-
 .toast-container.top-right {
   align-self: flex-end;
+}
+.toast-container.bottom-center {
+  align-self: center;
+  bottom: 0px;
+}
+.toast-container.bottom-left {
+  align-self: flex-start;
+  bottom: 0px;
+}
+.toast-container.bottom-right {
+  align-self: flex-end;
+  bottom: 0px;
 }

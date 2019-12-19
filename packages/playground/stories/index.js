@@ -18,7 +18,7 @@ storiesOf('Toast options', module)
     const onClick = () => {
       const { variant, timeout, pause, delay, position } = options;
       toast.show(
-        <div>Success toast which dismisses in {timeout} ms</div>,
+        <div>Toast which dismisses in {timeout} ms</div>,
         { timeout, pause, variant, delay, position }
       )
     }
@@ -43,7 +43,7 @@ storiesOf('Toast options', module)
           <div style={{display: 'inline-flex', marginTop: 8}}>
             <select onChange={onChange} data-property='position'>
               <option value={TOP_CENTER}>{TOP_CENTER}</option>
-              <option value={BOTTOM_RIGHT}>{BOTTOM_CENTER}</option>
+              <option value={BOTTOM_CENTER}>{BOTTOM_CENTER}</option>
               <option value={TOP_LEFT}>{TOP_LEFT}</option>
               <option value={BOTTOM_LEFT}>{BOTTOM_LEFT}</option>
               <option value={TOP_RIGHT}>{TOP_RIGHT}</option>
@@ -66,5 +66,15 @@ storiesOf('Toast options', module)
           <Button onClick={onClick}>Show Toast</Button>
         </div>
       </div>
+    )
+  })
+  .add('Allowing user to remove the toast', () => {
+    let toastId = null;
+    const onClickClose = () => {
+      toast.remove(toastId)
+    }
+    toastId = toast.show(
+      <div>Click cross icon to remove the toast. <div style={{cursor: 'pointer', display: 'inline-block'}} onClick={onClickClose}>X</div></div>,
+      { pause: true }
     )
   })

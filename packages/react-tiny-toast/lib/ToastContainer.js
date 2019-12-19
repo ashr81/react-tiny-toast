@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useRef } from 'react';
+import React, { useEffect, useReducer, useRef, Fragment } from 'react';
 import { createPortal } from 'react-dom';
 import { toastManager } from './toast';
 import './index.css';
@@ -70,18 +70,39 @@ const ToastContainer = () => {
     toastRef.current = node;
     return () => document.body.removeChild(node);
   }, []);
-  const markup = data.map(({
-    content,
-    key,
-    position
-  }) => {
-    return React.createElement("div", {
-      key: key,
-      className: `toast-container ${position}`
-    }, content);
-  });
+
+  const positionMaintainer = () => {
+    const mapper = {};
+    data.map(({
+      position,
+      ...rest
+    }) => {
+      if (position) {
+        if (!mapper[position]) mapper[position] = [];
+        mapper[position].push(rest);
+      }
+    });
+    return mapper;
+  };
+
+  const markup = () => {
+    const mapper = positionMaintainer();
+    return Object.keys(mapper).map((position, index) => {
+      const content = mapper[position].map(({
+        key,
+        content
+      }) => React.createElement(Fragment, {
+        key: key
+      }, content));
+      return React.createElement("div", {
+        key: index,
+        className: `toast-container ${position}`
+      }, content);
+    });
+  };
+
   if (!toastRef.current) return null;
-  return createPortal(markup, toastRef.current);
+  return createPortal(markup(), toastRef.current);
 };
 
 export default ToastContainer;
