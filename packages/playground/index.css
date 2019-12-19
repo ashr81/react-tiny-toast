@@ -6,3 +6,20 @@
     justify-content: center;
     align-items: center;
 }
+
+input {
+    margin: 0 8px;
+}
+
+select {
+    margin: 0 8px;
+}
+
+button {
+    margin: 16px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}

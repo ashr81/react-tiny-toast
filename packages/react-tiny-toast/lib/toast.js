@@ -32,25 +32,8 @@ export const toastManager = {
 
 };
 const toast = {
-  success: (content, options = {}) => {
-    return toastManager.add(content, { ...options,
-      variant: 'success'
-    });
-  },
-  error: (content, options = {}) => {
-    return toastManager.add(content, { ...options,
-      variant: 'error'
-    });
-  },
-  warning: (content, options = {}) => {
-    return toastManager.add(content, { ...options,
-      variant: 'warning'
-    });
-  },
-  default: (content, options = {}) => {
-    return toastManager.add(content, { ...options,
-      variant: 'default'
-    });
+  show: (content, options = {}) => {
+    return toastManager.add(content, options);
   },
   remove: id => {
     return toastManager.remove(id);
