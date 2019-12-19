@@ -62,8 +62,8 @@ const ToastContainer = () => {
   const markup = () => {
     const mapper = positionMaintainer()
     return Object.keys(mapper).map((position, index) => {
-      const content = mapper[position].map(({ key, content }) => (
-        <Fragment key={key}>{content}</Fragment>
+      const content = mapper[position].map(({ key, content, variant }) => (
+        <div key={key} className={`toast-item toast-item-${variant}`}>{content}</div>
       ));
       return (
         <div key={index} className={`toast-container ${position}`}>

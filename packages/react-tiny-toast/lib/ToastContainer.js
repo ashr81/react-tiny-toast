@@ -90,9 +90,11 @@ const ToastContainer = () => {
     return Object.keys(mapper).map((position, index) => {
       const content = mapper[position].map(({
         key,
-        content
-      }) => React.createElement(Fragment, {
-        key: key
+        content,
+        variant
+      }) => React.createElement("div", {
+        key: key,
+        className: `toast-item toast-item-${variant}`
       }, content));
       return React.createElement("div", {
         key: index,

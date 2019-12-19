@@ -1,8 +1,16 @@
 export { default as toast } from './toast';
 export { default as ToastContainer } from './ToastContainer';
-export const TOP_CENTER = 'top-center';
-export const TOP_LEFT = 'top-left';
-export const TOP_RIGHT = 'top-right';
-export const BOTTOM_LEFT = 'bottom-left';
-export const BOTTOM_RIGHT = 'bottom-right';
-export const BOTTOM_CENTER = 'bottom-center';
+export const POSITIONS = {
+  TOP_CENTER: 'top-center',
+  TOP_LEFT: 'top-left',
+  TOP_RIGHT: 'top-right',
+  BOTTOM_LEFT: 'bottom-left',
+  BOTTOM_RIGHT: 'bottom-right',
+  BOTTOM_CENTER: 'bottom-center'
+};
+export const VARIANTS = {
+  SUCCESS: 'success',
+  DANGER: 'danger',
+  WARNING: 'warning',
+  DEFAULT: 'default'
+};
