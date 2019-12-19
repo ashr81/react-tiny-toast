@@ -23,7 +23,7 @@
   "scripts": {
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "build": "build-storybook -c .storybook -o public"
+    "build": "build-storybook -c .storybook -o build"
   },
   "eslintConfig": {
     "extends": "react-app"
