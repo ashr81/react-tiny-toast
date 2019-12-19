@@ -1,25 +1,21 @@
 #react-tiny-toast-main-container {
-  width: 100vw;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  position: fixed;
-  z-index: -1;
-  top: 0px;
-  left: 0px;
 }
 .toast-container {
-  z-index: 9999;
-  position: absolute;
+  position: fixed;
 }
 .toast-container.top-center {
+  top: 0px;
   align-self: center;
 }
 .toast-container.top-left {
+  top: 0px;
   align-self: flex-start;
 }
 .toast-container.top-right {
+  top: 0px;
   align-self: flex-end;
 }
 .toast-container.bottom-center {
