@@ -1,7 +1,9 @@
+# Installation
 Install this package by running on your project root directory.
 
 `yarn install react-tiny-toast`
 
+# Usage
 Once installed, render this component onto your root component.
 ```
 import { ToastContainer } from 'react-tiny-toast';
