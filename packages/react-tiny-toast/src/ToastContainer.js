@@ -8,7 +8,7 @@ const REMOVE = 'REMOVE';
 const reducer = (state, action) => {
   const { type, data } = action;
   if(type === ADD) {
-    if(state.filter(i => i.code && i.code !== data.code).length) {
+    if(state.filter(i => i.uniqueCode && i.uniqueCode === data.uniqueCode).length) {
       return state;
     }
     return [...state, data]
@@ -62,9 +62,13 @@ const ToastContainer = () => {
   const markup = () => {
     const mapper = positionMaintainer()
     return Object.keys(mapper).map((position, index) => {
-      const content = mapper[position].map(({ key, content, variant }) => (
-        <div key={key} className={`toast-item toast-item-${variant}`}>{content}</div>
-      ));
+      const content = mapper[position].map(({ key, content, variant }) => {
+        if(React.isValidElement(content)) {
+          return content;
+        } else {
+          return (<div key={key} className={`toast-item toast-item-${variant}`}>{content}</div>);
+        }
+      });
       return (
         <div key={index} className={`toast-container ${position}`}>
           {content}

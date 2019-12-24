@@ -4,6 +4,7 @@
   "private": false,
   "main": "lib/index.js",
   "module": "lib/index.js",
+  "sideEffects": false,
   "babel": {
     "presets": [
       "@babel/react"

@@ -12,14 +12,15 @@ storiesOf('Toast options', module)
       variant: 'success',
       pause: false,
       delay: 0,
-      position: POSITIONS.TOP_CENTER
+      position: POSITIONS.TOP_CENTER,
+      uniqueCode: ''
     })
     const toastText = `Toast which dismisses in ${options.timeout} ms`
     const onClick = () => {
-      const { variant, timeout, pause, delay, position } = options;
+      const { variant, timeout, pause, delay, position, uniqueCode } = options;
       toast.show(
         toastText,
-        { timeout, pause, variant, delay, position }
+        { timeout, pause, variant, delay, position, uniqueCode }
       )
     }
 
@@ -78,12 +79,16 @@ storiesOf('Toast options', module)
             <input type='number' data-property='delay' value={options.delay} onChange={onChange}/>
             <h5 style={{margin: 0}}>Delay in ms. after which the user sees this toast message.</h5>
           </div>
+          <div style={{display: 'inline-flex', marginTop: 8}}>
+            <input type='text' data-property='uniqueCode' value={options.uniqueCode} onChange={onChange}/>
+            <h5 style={{margin: 0}}>Unique code to avoid multiple toast for same code.</h5>
+          </div>
           <button onClick={onClick} style={{width: 100}}>Show Toast</button>
           <div>Your Toast Code below: <button onClick={onClickCopy}>Copy</button></div>
           <code ref={previewCodeRef} style={{color: 'white', backgroundColor: 'black', padding: 8, borderRadius: 4}}>
             {`toast.show(
               '${toastText}',
-              { timeout: ${options.timeout}, pause: ${options.pause}, variant: '${options.variant}', delay: ${options.delay}, position: '${options.position}' })`}
+              { timeout: ${options.timeout}, pause: ${options.pause}, variant: '${options.variant}', delay: ${options.delay}, position: '${options.position}' ${options.uniqueCode ? `, uniqueCode: ${options.uniqueCode}` : ''}})`}
           </code>
         </div>
       </div>

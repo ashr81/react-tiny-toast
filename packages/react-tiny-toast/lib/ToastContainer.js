@@ -12,7 +12,7 @@ const reducer = (state, action) => {
   } = action;
 
   if (type === ADD) {
-    if (state.filter(i => i.code && i.code !== data.code).length) {
+    if (state.filter(i => i.uniqueCode && i.uniqueCode === data.uniqueCode).length) {
       return state;
     }
 
@@ -92,10 +92,16 @@ const ToastContainer = () => {
         key,
         content,
         variant
-      }) => React.createElement("div", {
-        key: key,
-        className: `toast-item toast-item-${variant}`
-      }, content));
+      }) => {
+        if (React.isValidElement(content)) {
+          return content;
+        } else {
+          return React.createElement("div", {
+            key: key,
+            className: `toast-item toast-item-${variant}`
+          }, content);
+        }
+      });
       return React.createElement("div", {
         key: index,
         className: `toast-container ${position}`
