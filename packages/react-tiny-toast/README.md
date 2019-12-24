@@ -38,6 +38,6 @@ const ChildComponent = () => {
   position: 'top-center' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'bottom-center',
   delay: number, // time in milli seconds
   timeout: number, // time in mulli seconds
-  code: uniqueId // helps in avoiding duplicate toast message when triggered multiple times by user actions.
+  uniqueCode: string | number // helps in avoiding duplicate toast message when triggered multiple times by user actions.
 }
 ```
