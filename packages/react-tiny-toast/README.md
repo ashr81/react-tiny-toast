@@ -25,7 +25,7 @@ import { toast } from 'react-tiny-toast';
 const ChildComponent = () => {
   useEffect(() => {
      toast.show('You have successfully seen the toast notification.', { timeout: 3000 })
-  })
+  }, [])
 }
 ```
 
