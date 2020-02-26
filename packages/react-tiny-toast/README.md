@@ -29,7 +29,7 @@ const ChildComponent = () => {
 }
 ```
 
-###### Play around with the toast component [here](https://playground.ashr81.now.sh). Find readymade code here.
+###### Play around with the toast component [here](https://playground.ashr81.now.sh). Find readymade code and demo for the message invoker [here](https://playground.ashr81.now.sh).
 
 #### `toast.show` accepts two arguments
 1. `string` or a valid react component which renders onto the displayed toast component.
