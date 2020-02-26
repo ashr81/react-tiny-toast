@@ -22,7 +22,7 @@
     "react-dom": "^16.8.0"
   },
   "scripts": {
-    "start": "rm -rf lib && mkdir lib && npx babel src --out-dir lib --copy-files --watch",
+    "start": "tsc -w",
     "build": "rm -rf lib && mkdir lib && npx babel src/* --out-dir lib --copy-files",
     "publish": "rm -rf lib && mkdir lib && npx babel src/* --out-dir lib --copy-files && npm publish"
   },

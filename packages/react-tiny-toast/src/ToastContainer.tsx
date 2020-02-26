@@ -1,11 +1,20 @@
-import React, { useEffect, useReducer, useRef, Fragment } from 'react';
+import React, { useEffect, useReducer, useRef, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { toastManager } from './toast';
 import './index.css';
+import { actionTypes, optionTypes } from './react-tiny-toast';
 
 const ADD = 'ADD';
 const REMOVE = 'REMOVE';
-const reducer = (state, action) => {
+type stateTypes = {
+  uniqueCode: number;
+  id: number;
+}
+interface actionsInterface {
+  type: actionTypes;
+  data: stateTypes
+}
+const reducer = (state: stateTypes[], action: actionsInterface) => {
   const { type, data } = action;
   if(type === ADD) {
     if(state.filter(i => i.uniqueCode && i.uniqueCode === data.uniqueCode).length) {
@@ -23,7 +32,7 @@ const ToastContainer = () => {
   const [data, dispatch] = useReducer(reducer, [])
   const toastRef = useRef(null)
 
-  const callback = (actionType, content, options) => {
+  const callback = (actionType: actionTypes, content: ReactNode, options: optionTypes) => {
     if(actionType === ADD) {
       dispatch({ type: ADD, data: { content, ...options, key: `${options.id}` }})
     }
@@ -50,7 +59,7 @@ const ToastContainer = () => {
 
   const positionMaintainer = () => {
     const mapper = {}
-    data.map(({ position, ...rest }) => {
+    data.map(({ position , ...rest }: optionTypes) => {
       if(position) {
         if(!mapper[position]) mapper[position] = []
         mapper[position].push(rest)
