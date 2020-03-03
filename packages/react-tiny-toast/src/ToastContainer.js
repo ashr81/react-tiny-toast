@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useRef, Fragment } from 'react';
+import React, { useEffect, useReducer, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { toastManager } from './toast';
 import './index.css';
@@ -63,11 +63,9 @@ const ToastContainer = () => {
     const mapper = positionMaintainer()
     return Object.keys(mapper).map((position, index) => {
       const content = mapper[position].map(({ key, content, variant }) => {
-        if(React.isValidElement(content)) {
-          return content;
-        } else {
-          return (<div key={key} className={`toast-item toast-item-${variant}`}>{content}</div>);
-        }
+        let animationCssClass = 'toast-item-animation-top';
+        if(position.indexOf('bottom')) animationCssClass = 'toast-item-animation-bottom';
+        return (<div key={key} className={`toast-item toast-item-${variant} ${animationCssClass}`}>{content}</div>);
       });
       return (
         <div key={index} className={`toast-container ${position}`}>

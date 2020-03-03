@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useRef, Fragment } from 'react';
+import React, { useEffect, useReducer, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { toastManager } from './toast';
 import './index.css';
@@ -93,14 +93,12 @@ const ToastContainer = () => {
         content,
         variant
       }) => {
-        if (React.isValidElement(content)) {
-          return content;
-        } else {
-          return React.createElement("div", {
-            key: key,
-            className: `toast-item toast-item-${variant}`
-          }, content);
-        }
+        let animationCssClass = 'toast-item-animation-top';
+        if (position.indexOf('bottom')) animationCssClass = 'toast-item-animation-bottom';
+        return React.createElement("div", {
+          key: key,
+          className: `toast-item toast-item-${variant} ${animationCssClass}`
+        }, content);
       });
       return React.createElement("div", {
         key: index,
