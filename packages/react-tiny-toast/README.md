@@ -42,5 +42,6 @@ const App = () => {
   delay: number, // time in milli seconds
   timeout: number, // time in mulli seconds
   uniqueCode: string | number // helps in avoiding duplicate toast message when triggered multiple times by user actions.
+  className: string // className to customize your styles for the toast element build by package..
 }
 ```
