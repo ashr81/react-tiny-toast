@@ -126,7 +126,7 @@ storiesOf('Toast options', module)
       toast.remove(toastId)
     }
     toastId = toast.show(
-      <div>Adding your own custom styles using className property <div style={{cursor: 'pointer', display: 'inline-block'}} onClick={onClickClose}>X</div></div>,
+      <div>Click cross icon to remove the toast. <div style={{cursor: 'pointer', display: 'inline-block'}} onClick={onClickClose}>X</div></div>,
       { pause: true, className: 'custom-react-tiny-toast' }
     )
     return (
