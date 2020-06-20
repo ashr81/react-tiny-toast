@@ -9,8 +9,8 @@ export const POSITIONS = {
   BOTTOM_CENTER: 'bottom-center'
 }
 export const VARIANTS = {
-    SUCCESS: 'success',
-    DANGER: 'danger',
-    WARNING: 'warning',
-    DEFAULT: 'default'
+  SUCCESS: 'success',
+  DANGER: 'danger',
+  WARNING: 'warning',
+  DEFAULT: 'default'
 }

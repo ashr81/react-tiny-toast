@@ -62,10 +62,10 @@ const ToastContainer = () => {
   const markup = () => {
     const mapper = positionMaintainer()
     return Object.keys(mapper).map((position, index) => {
-      const content = mapper[position].map(({ key, content, variant }) => {
+      const content = mapper[position].map(({ key, content, variant, className }) => {
         let animationCssClass = 'toast-item-animation-top';
         if(position.indexOf('bottom')) animationCssClass = 'toast-item-animation-bottom';
-        return (<div key={key} className={`toast-item toast-item-${variant} ${animationCssClass}`}>{content}</div>);
+        return (<div key={key} className={`toast-item toast-item-${variant} ${animationCssClass} ${className ? className : ''}`}>{content}</div>);
       });
       return (
         <div key={index} className={`toast-container ${position}`}>

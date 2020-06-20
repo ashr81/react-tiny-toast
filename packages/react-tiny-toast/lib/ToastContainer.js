@@ -91,13 +91,14 @@ const ToastContainer = () => {
       const content = mapper[position].map(({
         key,
         content,
-        variant
+        variant,
+        className
       }) => {
         let animationCssClass = 'toast-item-animation-top';
         if (position.indexOf('bottom')) animationCssClass = 'toast-item-animation-bottom';
         return /*#__PURE__*/React.createElement("div", {
           key: key,
-          className: `toast-item toast-item-${variant} ${animationCssClass}`
+          className: `toast-item toast-item-${variant} ${animationCssClass} ${className ? className : ''}`
         }, content);
       });
       return /*#__PURE__*/React.createElement("div", {

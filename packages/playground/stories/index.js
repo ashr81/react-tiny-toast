@@ -120,3 +120,37 @@ storiesOf('Toast options', module)
       </div>
     )
   })
+  .add('Add your own custom styles by sending className while calling toast.show', () => {
+    let toastId = null;
+    const onClickClose = () => {
+      toast.remove(toastId)
+    }
+    toastId = toast.show(
+      <div>Adding your own custom styles using className property <div style={{cursor: 'pointer', display: 'inline-block'}} onClick={onClickClose}>X</div></div>,
+      { pause: true, className: 'custom-react-tiny-toast' }
+    )
+    return (
+      <div className='main-container'>
+        <div className='form-container'>
+          <code style={{color: 'white', backgroundColor: 'black', padding: 8, borderRadius: 4}}>
+            <span>{`let toastId = null;\n`}</span><br/>
+            <span>{`const onClickClose = () => {`}</span><br/>
+              <span>&nbsp;&nbsp;{`toast.remove(toastId);`}</span><br/>
+            <span>{`}`}</span><br/>
+            <span>{`toastId = toast.show(`}</span><br/>
+              <span>&nbsp;&nbsp;{`<div>Click cross icon to remove the toast. <div style={{cursor: 'pointer', display: 'inline-block'}} onClick={onClickClose}>X</div></div>,`}</span><br/>
+              <span>&nbsp;&nbsp;{`{ pause: true, className: 'custom-react-tiny-toast' }`}</span><br/>
+            <span>{`)`}</span><br/>
+          </code>
+          <div style={{marginTop: 8}}>Your css code be like this:</div>
+          <code style={{color: 'white', backgroundColor: 'black', padding: 8, borderRadius: 4}}>
+            <span style={{color: 'orange'}}>{`.custom-react-tiny-toast`}</span><span>{` {`}</span><br/>
+            <span>&nbsp;&nbsp;{`color: grey;`}</span><br/>
+            <span>&nbsp;&nbsp;{`background-color: greenyellow;`}</span><br/>
+            <span>&nbsp;&nbsp;{`border: 1px solid red;`}</span><br/>
+            <span>{`}`}</span>
+          </code>
+        </div>
+      </div>
+    )
+  })
