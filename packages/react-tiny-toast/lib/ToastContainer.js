@@ -95,12 +95,12 @@ const ToastContainer = () => {
       }) => {
         let animationCssClass = 'toast-item-animation-top';
         if (position.indexOf('bottom')) animationCssClass = 'toast-item-animation-bottom';
-        return React.createElement("div", {
+        return /*#__PURE__*/React.createElement("div", {
           key: key,
           className: `toast-item toast-item-${variant} ${animationCssClass}`
         }, content);
       });
-      return React.createElement("div", {
+      return /*#__PURE__*/React.createElement("div", {
         key: index,
         className: `toast-container ${position}`
       }, content);
@@ -108,7 +108,7 @@ const ToastContainer = () => {
   };
 
   if (!toastRef.current) return null;
-  return createPortal(markup(), toastRef.current);
+  return /*#__PURE__*/createPortal(markup(), toastRef.current);
 };
 
 export default ToastContainer;

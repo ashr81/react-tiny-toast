@@ -9,28 +9,24 @@ Install this package by running on your project root directory.
 `yarn install react-tiny-toast`
 
 # Usage
-Once installed, render this component onto your root component.
+Once installed, render this component onto your root component and you can call `toast` method anywhere in your application(Make sure `ToastContainer` is called only once in your component tree).
 ```
 import { ToastContainer } from 'react-tiny-toast';
-
-const App = () => {
-  return (
-    <div>
-    <ToastContainer />
-    </div>
-  )
-}
-```
-
-once above step is done. you can call in the toast from anywhere in your application(Make sure `ToastContainer` is in your component tree).
-```
-import React, { useEffect } from 'react';
 import { toast } from 'react-tiny-toast';
 
 const ChildComponent = () => {
   useEffect(() => {
      toast.show('You have successfully seen the toast notification.', { timeout: 3000 })
-  })
+  }, [])
+}
+
+const App = () => {
+  return (
+    <div>
+    <ToastContainer />
+    <ChildComponent />
+    </div>
+  )
 }
 ```
 
