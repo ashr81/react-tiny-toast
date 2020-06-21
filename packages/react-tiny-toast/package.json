@@ -1,6 +1,6 @@
 {
   "name": "react-tiny-toast",
-  "version": "0.1.17",
+  "version": "0.1.19",
   "private": false,
   "main": "lib/index.js",
   "module": "lib/index.js",

@@ -3,6 +3,9 @@ Aim of this package is to keep only bundles that are critical to your applicatio
 ## bundle size(Minified + Gzipped) <= 1kb
 with its bundle size less than 1kb and custom toast components it add only implementation of toast, but not the styles.
 
+## Demo [link](https://playground.ashr81.now.sh/)
+A demo is more worthier than code documentation
+
 ## Features
 - Build your own custom style toast components.
 - Change already existing styles.
@@ -56,4 +59,3 @@ const App = () => {
   className: string // className to customize your styles for the toast element build by package..
 }
 ```
-
