@@ -1,6 +1,6 @@
 {
   "name": "react-tiny-toast",
-  "version": "0.1.20",
+  "version": "1.0.0",
   "private": false,
   "main": "lib/index.js",
   "module": "lib/index.js",
@@ -33,7 +33,7 @@
     "build:js": "babel src --out-dir lib --copy-files --extensions \".ts,.tsx\"",
     "build:clean": "rm -rf lib",
     "build": "yarn build:clean && yarn build:types && yarn build:js",
-    "publish": "rm -rf lib && mkdir lib && npx babel src/* --out-dir lib --copy-files && npm publish"
+    "publish": "yarn build && npm publish"
   },
   "repository": {
     "type": "git",
