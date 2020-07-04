@@ -1,13 +1,16 @@
 import React, { useState, useRef } from 'react';
-import { storiesOf } from '@storybook/react';
 import {
-  toast, POSITIONS, VARIANTS
+  toast, POSITIONS, VARIANTS, ToastOptionsInterface, ToastContainer
 } from 'react-tiny-toast';
 
-storiesOf('Toast options', module)
-  .add('Playaround with different toast options', () => {
-    const previewCodeRef = useRef(null)
-    const [options, updateOptions] = useState({
+export default {
+  title: 'Documentation & Examples',
+  component: ToastContainer
+}
+
+export const withDifferentToastOptions = () => {
+  const previewCodeRef = useRef(null)
+    const [options, updateOptions] = useState<ToastOptionsInterface>({
       timeout: 2000,
       variant: 'success',
       pause: false,
@@ -93,9 +96,10 @@ storiesOf('Toast options', module)
         </div>
       </div>
     )
-  })
-  .add('Allowing user to remove the toast', () => {
-    let toastId = null;
+}
+
+export const StickyToast = () => {
+  let toastId = null;
     const onClickClose = () => {
       toast.remove(toastId)
     }
@@ -119,4 +123,40 @@ storiesOf('Toast options', module)
         </div>
       </div>
     )
-  })
+}
+
+
+export const CustomToast = () => {
+  let toastId = null;
+    const onClickClose = () => {
+      toast.remove(toastId)
+    }
+    toastId = toast.show(
+      <div>Click cross icon to remove the toast. <div style={{cursor: 'pointer', display: 'inline-block'}} onClick={onClickClose}>X</div></div>,
+      { pause: true, className: 'custom-react-tiny-toast' }
+    )
+    return (
+      <div className='main-container'>
+        <div className='form-container'>
+          <code style={{color: 'white', backgroundColor: 'black', padding: 8, borderRadius: 4}}>
+            <span>{`let toastId = null;\n`}</span><br/>
+            <span>{`const onClickClose = () => {`}</span><br/>
+              <span>&nbsp;&nbsp;{`toast.remove(toastId);`}</span><br/>
+            <span>{`}`}</span><br/>
+            <span>{`toastId = toast.show(`}</span><br/>
+              <span>&nbsp;&nbsp;{`<div>Click cross icon to remove the toast. <div style={{cursor: 'pointer', display: 'inline-block'}} onClick={onClickClose}>X</div></div>,`}</span><br/>
+              <span>&nbsp;&nbsp;{`{ pause: true, className: 'custom-react-tiny-toast' }`}</span><br/>
+            <span>{`)`}</span><br/>
+          </code>
+          <div style={{marginTop: 8}}>Your css code be like this:</div>
+          <code style={{color: 'white', backgroundColor: 'black', padding: 8, borderRadius: 4}}>
+            <span style={{color: 'orange'}}>{`.custom-react-tiny-toast`}</span><span>{` {`}</span><br/>
+            <span>&nbsp;&nbsp;{`color: grey;`}</span><br/>
+            <span>&nbsp;&nbsp;{`background-color: greenyellow;`}</span><br/>
+            <span>&nbsp;&nbsp;{`border: 1px solid red;`}</span><br/>
+            <span>{`}`}</span>
+          </code>
+        </div>
+      </div>
+    )
+}

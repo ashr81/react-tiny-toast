@@ -1,29 +1,38 @@
 {
   "name": "react-tiny-toast",
-  "version": "0.1.13",
+  "version": "0.1.20",
   "private": false,
   "main": "lib/index.js",
   "module": "lib/index.js",
   "license": "MIT",
   "babel": {
     "presets": [
-      "@babel/react"
+      "@babel/react",
+      "@babel/preset-typescript"
     ]
   },
+  "types": "lib/types/react-tiny-toast.d.ts",
   "dependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.7.5"
+    "@babel/cli": "^7.7.5",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/react": "^16.9.41",
+    "@types/react-dom": "^16.9.8",
+    "typescript": "^3.9.6"
   },
   "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "react": ">=16.8.0 <17.0",
+    "react-dom": ">=16.8.0 <17.0"
   },
   "scripts": {
     "start": "tsc -w",
-    "build": "rm -rf lib && mkdir lib && npx babel src/* --out-dir lib --copy-files",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir lib --copy-files --extensions \".ts,.tsx\"",
+    "build:clean": "rm -rf lib",
+    "build": "yarn build:clean && yarn build:types && yarn build:js",
     "publish": "rm -rf lib && mkdir lib && npx babel src/* --out-dir lib --copy-files && npm publish"
   },
   "repository": {

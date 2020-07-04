@@ -30,7 +30,54 @@
   align-self: flex-end;
   bottom: 0px;
 }
+@-webkit-keyframes toast-animation-from-top {
+  from {
+    top: 100px;
+    opacity: 0.8;
+  }
+  to {
+    top: 0px;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes toast-animation-from-bottom {
+  from {
+    bottom: 100px;
+    opacity: 0.8;
+  }
+  to {
+    bottom: 0px;
+    opacity: 1;
+  }
+}
+@keyframes toast-animation-from-top {
+  from {
+    top: 100px;
+    opacity: 0.8;
+  }
+  to {
+    top: 0px;
+    opacity: 1;
+  }
+}
+@keyframes toast-animation-from-bottom {
+  from {
+    bottom: 100px;
+    opacity: 0.8;
+  }
+  to {
+    bottom: 0px;
+    opacity: 1;
+  }
+}
+.toast-item-animation-top {
+  animation: toast-animation-from-top 0.5s ease-in-out;
+}
+.toast-item-animation-bottom {
+  animation: toast-animation-from-bottom 0.5s ease-in-out;
+}
 .toast-item {
+  position: relative;
   padding: 8px;
   margin: 2px;
   border-radius: 2px;

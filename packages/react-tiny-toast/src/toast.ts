@@ -1,35 +1,33 @@
-import { contentTypes, optionTypes, callbackFuncTypes } from './react-tiny-toast';
+import { contentTypes, callbackFuncTypes, ToastOptionsInterface } from './types/react-tiny-toast';
 
+const defaultOptions: ToastOptionsInterface = {
+  delay: 0,
+  timeout: 2000,
+  position: "top-center"
+}
 export const toastManager = (function() {
   let callbackFn: callbackFuncTypes;
   const manager = {
-      subscribe(callback: callbackFuncTypes): void {
-        callbackFn = callback;
-      },
-      defaultOptions() {
-        return {
-          delay: 0,
-          timeout: 2000,
-          position: "top-center"
-        };
-      },
-      add(content: contentTypes, options: optionTypes) {
-        const mergedOptions = { ...this.defaultOptions(), ...options };
-        const timeoutId = window.setTimeout(() => {
-          callbackFn('ADD', content, {...mergedOptions, id: timeoutId});
-        }, mergedOptions.delay);
-        return timeoutId;
-      },
-      remove(id: number) {
-        callbackFn('REMOVE', null, { id })
-        return true;
-      }
+    subscribe(callback: callbackFuncTypes): void {
+      callbackFn = callback;
+    },
+    add(content: contentTypes, options: ToastOptionsInterface) {
+      const mergedOptions = { ...defaultOptions, ...options };
+      const timeoutId = window.setTimeout(() => {
+        callbackFn('ADD', content, {...mergedOptions, id: timeoutId});
+      }, mergedOptions.delay);
+      return timeoutId;
+    },
+    remove(id: number) {
+      callbackFn('REMOVE', null, { id })
+      return true;
+    }
   }
   return manager;
 })();
-  
+
 const toast = {
-  show: (content: contentTypes, options={}) => {
+  show: (content: contentTypes, options: ToastOptionsInterface) => {
     return toastManager.add(content, options)
   },
   remove: (id: number) => {
