@@ -1,13 +1,16 @@
 import React, { useState, useRef } from 'react';
-import { storiesOf } from '@storybook/react';
 import {
-  toast, POSITIONS, VARIANTS
+  toast, POSITIONS, VARIANTS, ToastOptionsInterface, ToastContainer
 } from 'react-tiny-toast';
 
-storiesOf('Toast options', module)
-  .add('Playaround with different toast options', () => {
-    const previewCodeRef = useRef(null)
-    const [options, updateOptions] = useState({
+export default {
+  title: 'Documentation & Examples',
+  component: ToastContainer
+}
+
+export const withDifferentToastOptions = () => {
+  const previewCodeRef = useRef(null)
+    const [options, updateOptions] = useState<ToastOptionsInterface>({
       timeout: 2000,
       variant: 'success',
       pause: false,
@@ -93,9 +96,10 @@ storiesOf('Toast options', module)
         </div>
       </div>
     )
-  })
-  .add('Allowing user to remove the toast', () => {
-    let toastId = null;
+}
+
+export const StickyToast = () => {
+  let toastId = null;
     const onClickClose = () => {
       toast.remove(toastId)
     }
@@ -119,9 +123,11 @@ storiesOf('Toast options', module)
         </div>
       </div>
     )
-  })
-  .add('Add your own custom styles by sending className while calling toast.show', () => {
-    let toastId = null;
+}
+
+
+export const CustomToast = () => {
+  let toastId = null;
     const onClickClose = () => {
       toast.remove(toastId)
     }
@@ -153,4 +159,4 @@ storiesOf('Toast options', module)
         </div>
       </div>
     )
-  })
+}
