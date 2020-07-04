@@ -3,6 +3,8 @@ Aim of this package is to keep only bundles that are critical to your applicatio
 ## bundle size(Minified + Gzipped) <= 1kb
 with its bundle size less than 1kb and custom toast components it add only implementation of toast, but not the styles.
 
+#### ******😍😍😍 Added Typescript support  😍😍😍******
+
 ## Demo [link](https://playground.ashr81.now.sh/)
 A demo is more worthier than code documentation
 
@@ -13,7 +15,6 @@ A demo is more worthier than code documentation
 - Build your own animations by overriding existing styles using `className` property.
 
 ## Coming Soon
-- Typescript support
 - Server side support
 
 
