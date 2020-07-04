@@ -21,7 +21,6 @@
     "isolatedModules": true,
     "jsx": "react"
   },
-  "types": "src/react-tiny-toast.ts",
   "include": [
     "src"
   ]
