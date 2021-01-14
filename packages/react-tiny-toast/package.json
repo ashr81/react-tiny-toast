@@ -30,7 +30,7 @@
   "scripts": {
     "start": "tsc -w",
     "build:types": "tsc --emitDeclarationOnly",
-    "build:js": "babel src --out-dir lib --copy-files --extensions \".ts,.tsx\"",
+    "build:js": "tsc -p tsconfig.json",
     "build:clean": "rm -rf lib",
     "build": "yarn build:clean && yarn build:types && yarn build:js",
     "publish": "yarn build && npm publish"
