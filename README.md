@@ -55,7 +55,7 @@ const App = () => {
   variant: 'success' | 'danger' | 'warning' | 'default',
   position: 'top-center' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'bottom-center',
   delay: number, // time in milli seconds
-  timeout: number, // time in mulli seconds
+  timeout: number, // time in milli seconds
   uniqueCode: string | number // helps in avoiding duplicate toast message when triggered multiple times by user actions.
   className: string // className to customize your styles for the toast element build by package..
 }
