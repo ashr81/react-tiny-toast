@@ -1,14 +1,70 @@
 {
-  "name": "root",
-  "private": true,
-  "version": "1.0.0",
-  "description": "React toast notifications with minimum bundle size.",
-  "author": "ashr81",
+  "name": "react-tiny-toast",
+  "version": "1.0.2",
+  "private": false,
+  "main": "lib/index.js",
+  "module": "lib/index.js",
   "license": "MIT",
-  "workspaces": {
-    "packages": [
-      "packages/react-tiny-toast",
-      "packages/playground"
+  "author": "ashr81",
+  "babel": {
+    "presets": [
+      "@babel/react",
+      "@babel/preset-typescript"
     ]
-  }
+  },
+  "types": "lib/types/react-tiny-toast.d.ts",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.5",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/react": "^16.9.41",
+    "@types/react-dom": "^16.9.8",
+    "typescript": "^3.9.6"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0 <17.0",
+    "react-dom": ">=16.8.0 <17.0"
+  },
+  "scripts": {
+    "start": "tsc -w",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir lib --copy-files --extensions \".ts,.tsx\"",
+    "build:clean": "rm -rf lib",
+    "build": "npm run build:clean && npm run build:types && npm run build:js",
+    "publish": "npm run build && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashr81/react-tiny-toast.git",
+    "directory": "packages/react-tiny-toast"
+  },
+  "bugs": {
+    "url": "https://github.com/ashr81/react-tiny-toast/issues"
+  },
+  "homepage": "https://github.com/ashr81/react-tiny-toast#readme",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "keywords": [
+    "react",
+    "react-toast-notifications",
+    "react-notifications",
+    "react-tiny-toast",
+    "toast-notifications"
+  ]
 }
