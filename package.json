@@ -1,6 +1,6 @@
 {
   "name": "react-tiny-toast",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": false,
   "main": "lib/index.js",
   "module": "lib/index.js",
@@ -62,10 +62,14 @@
     ]
   },
   "keywords": [
-    "react",
     "react-toast-notifications",
     "react-notifications",
     "react-tiny-toast",
-    "toast-notifications"
+    "toast-notifications",
+    "tiny-toast",
+    "toast",
+    "notifications",
+    "react-toast",
+    "toast-notify"
   ]
 }
