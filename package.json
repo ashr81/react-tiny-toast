@@ -1,6 +1,6 @@
 {
   "name": "react-tiny-toast",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "private": false,
   "main": "lib/index.js",
   "module": "lib/index.js",
@@ -62,14 +62,24 @@
     ]
   },
   "keywords": [
+    "react-tiny-toast",
+    "tiny-toast",
     "react-toast-notifications",
     "react-notifications",
-    "react-tiny-toast",
     "toast-notifications",
-    "tiny-toast",
-    "toast",
-    "notifications",
     "react-toast",
-    "toast-notify"
-  ]
+    "react-toast-library",
+    "react-toast-hooks",
+    "toast-messages",
+    "react-tiny-toast-notifications",
+    "toast-message-react",
+    "toast-popup-react",
+    "lightweight-toast-react",
+    "react-toast-component",
+    "react-alerts",
+    "react-toastify-alternative",
+    "react-toast-system",
+    "tiny-toast-react",
+    "custom-toast-react"
+]
 }
